@@ -15,18 +15,32 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.regService.logout();
+    /* registration formGroup */
     this.registrationForm = new FormGroup({
-      displayName: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required])
-    }) 
+      displayName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z0-9 ]*')]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.maxLength(20), Validators.pattern('[a-zA-Z0-9]*')])
+    })
   }
 
+  get email() {
+    return this.registrationForm.get('email');
+  }
+
+  get password() {
+    return this.registrationForm.get('password');
+  }
+
+  get displayName() {
+    return this.registrationForm.get('displayName');
+  }
+
+  /* function to do registration */
   onRegister() {
     this.userExist = false;
-    if(this.registrationForm.valid) {
+    if (this.registrationForm.valid) {
       const usersList = this.regService.getUsers();
-      if(this.checkIfUserExist(usersList, this.registrationForm.value)) {
+      if (this.checkIfUserExist(usersList, this.registrationForm.value)) {
         this.userExist = true;
       } else {
         usersList.push(this.registrationForm.value);
@@ -37,10 +51,11 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
+  /* function to check if user already exist */
   checkIfUserExist(usersList: any, data: any) {
-    
-    if(usersList.length) {
-      return usersList.filter((u:any) => u.email === data.email).length ? true : false;
+
+    if (usersList.length) {
+      return usersList.filter((u: any) => u.email === data.email).length ? true : false;
     } else {
       return false;
     }

@@ -4,7 +4,11 @@
         <form [formGroup]="profileForm" (submit)="onSave()">
             <div class="form-group">
                 <label for="name">Display Name : </label>
-                <input type="name" name="name" class="form-control" placeholder="name" formControlName="displayName">
+                <input type="name" name="name" class="form-control" placeholder="name" formControlName="displayName"
+                    [ngClass]="{redBrdr: displayName.touched && displayName.errors}">
+                <div class="errMsg" *ngIf="displayName.touched && displayName.errors?.pattern">Special characters are
+                    not allowed</div>
+
             </div>
             <div class="form-group">
                 <label for="email">Email : </label>
@@ -12,17 +16,24 @@
             </div>
             <div class="form-group">
                 <label for="password">Password : </label>
-                <input type="password" name="password" class="form-control" placeholder="password" formControlName="password">
+                <input type="password" name="password" class="form-control" placeholder="password"
+                    formControlName="password" [ngClass]="{redBrdr: password.touched && password.errors}">
+                <div class="errMsg" *ngIf="password.touched && password.errors?.maxlength">Password should be max of 20
+                    characters</div>
+                <div class="errMsg" *ngIf="password.touched && password.errors?.pattern">Special characters are not
+                    allowed</div>
+
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-primary" [disabled]="profileForm.invalid || !profileForm.dirty">Save changes</button>
+                <button type="submit" class="btn btn-primary"
+                    [disabled]="profileForm.invalid || !profileForm.dirty">Save changes</button>
             </div>
 
         </form>
 
-        
 
-      
+
+
     </div>
 </div>
 
@@ -32,10 +43,10 @@
 
 <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Delete Confirmation</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('')">
-        <span aria-hidden="true">&times;</span>
-      </button>
+        <h4 class="modal-title" id="modal-basic-title">Delete Confirmation</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('')">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <div class="modal-body">
         Are you sure you want to delete the profile ?
@@ -45,4 +56,4 @@
         <button type="button" class="btn btn-primary" (click)="modal.close('')">Yes</button>
 
     </div>
-  </ng-template>
+</ng-template>

@@ -16,6 +16,7 @@ export class SectionComponent implements OnInit {
     this.getSections();
   }
 
+  /* to get all the sections */
   getSections() {
     this.homeService.getSections(serviceDetails.sectionURL, {"api-key": serviceDetails.apiKey}).subscribe((response: any)=> {
       this.sections = response.results;
@@ -23,6 +24,7 @@ export class SectionComponent implements OnInit {
     })
   }
 
+  /* to filter articles on change of section */
   onsectionChange(section: any, i: number ) {
     this.selectedSectionIdx = i;
     this.homeService.sectionSelect.next(section);

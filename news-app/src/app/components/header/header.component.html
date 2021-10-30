@@ -1,17 +1,17 @@
 <div class="header">
     <div class="lcontainer" *ngIf="isLoggedIn; else notLoggedIn">
-    
-            <span class="links" routerLink="home" routerLinkActive="active">Home</span>
-           
-            <span class="links" routerLink="read-later" routerLinkActive="active">Read Later</span>
-            <span class="links" routerLink="profile" routerLinkActive="active">Profile</span>
-            <span class="links" (click)="onLogout()">Logout</span>
-   
-       
-        
+
+        <span class="links" routerLink="home" routerLinkActive="active">Home</span>
+
+        <span class="links" routerLink="read-later" routerLinkActive="active">Read Later</span>
+        <span class="links" routerLink="profile" routerLinkActive="active">Profile</span>
+        <span class="links" (click)="onLogout()">Logout</span>
+
+
+
     </div>
     <ng-template #notLoggedIn>
         <div class="text-center">News App</div>
     </ng-template>
-    
+
 </div>
