@@ -1,5 +1,3 @@
-.delBtn {
-    position: fixed;
-    top: 75px;
-    right: 25px;
+.mr-10 {
+  margin-right:10px;
 }

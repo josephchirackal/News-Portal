@@ -25,6 +25,7 @@
 
             </div>
             <div class="text-center">
+                <button type="button" class="btn btn-danger mr-10" (click)="open(content)">Delete Profile</button>
                 <button type="submit" class="btn btn-primary"
                     [disabled]="profileForm.invalid || !profileForm.dirty">Save changes</button>
             </div>
@@ -37,9 +38,7 @@
     </div>
 </div>
 
-<div class="delBtn">
-    <button type="button" class="btn btn-danger" (click)="open(content)">Delete Profile</button>
-</div>
+
 
 <ng-template #content let-modal>
     <div class="modal-header">
