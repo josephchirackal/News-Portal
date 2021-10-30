@@ -1,0 +1,7 @@
+<div class="linksCont">
+    <ng-container *ngFor="let section of sections; let i=index">
+        <div class="links" (click)="onsectionChange(section,i)" [ngClass]="{'active': selectedSectionIdx == i}">
+            {{section.display_name}}
+        </div>
+    </ng-container>
+</div>

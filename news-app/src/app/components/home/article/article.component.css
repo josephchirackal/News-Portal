@@ -1,0 +1,19 @@
+.card{
+    border-radius: 10px;
+    border:1px solid #ccc;
+    margin:10px;
+    position: relative;
+    padding-bottom: 35px;
+}
+
+.img-responsive {
+    max-width: 100%;
+    width: 100%;
+}
+
+.rdLater{
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    cursor: pointer;
+}

@@ -1,0 +1,22 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: #17a2b8;
+    z-index: 9;
+}
+.lcontainer{
+    float:right;
+}
+
+.links {
+    padding:3px;
+    margin:2px;
+    cursor: pointer
+}
+
+.links.active {
+    color: white
+}

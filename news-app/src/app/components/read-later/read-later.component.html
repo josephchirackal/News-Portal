@@ -1,0 +1,19 @@
+<div class="pageContainer ">
+    <div class="row" *ngIf="articles?.length else noArticles">
+        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 card" *ngFor="let article of articles">
+            <div *ngIf="article.multimedia">
+
+                <img class="img-responsive" [src]="article.multimedia[0].url" alt="thumbnail.png">
+
+            </div>
+            <a [href]="article.url" target="_blank">{{article.title}}</a>
+            <div>{{article.abstract}}</div>
+            <div class="remove" (click)="onRemove(article)">Remove</div>
+
+        </div>
+    </div>
+    <ng-template #noArticles>
+        <div>No articles found !!!</div>
+    </ng-template>
+
+</div>

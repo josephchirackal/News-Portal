@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+
+.pageContainer{
+   margin-top:64px;
+}
+.mt-60 {
+    margin-top:60px;
+}
+
+.errBanner,.succBanner {
+   
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.errBanner{
+    background: rgb(220 53 69 / 40%);
+}
+
+.succBanner {
+    background: #26c34a82;
+}

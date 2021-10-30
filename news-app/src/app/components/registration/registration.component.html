@@ -1,1 +1,26 @@
-<p>registration works!</p>
+<div class="pageContainer row">
+    <div class="col-md-4 offset-md-4 col-sm-6 offset-sm-3 mt-60">
+        <div class="errBanner" *ngIf="userExist">User already exist !!!</div>
+        <a routerLink="/login" class="returnLink"> < return to login</a>
+        <form [formGroup]="registrationForm" (submit)="onRegister()">
+            <div class="form-group">
+                <label for="name">Display Name : </label>
+                <input type="name" name="name" class="form-control" placeholder="name" formControlName="displayName">
+            </div>
+            <div class="form-group">
+                <label for="email">Email : </label>
+                <input type="text" name="email" class="form-control" placeholder="Email" formControlName="email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password : </label>
+                <input type="password" name="password" class="form-control" placeholder="password" formControlName="password">
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" [disabled]="registrationForm.invalid">Register</button>
+            </div>
+
+        </form>
+
+      
+    </div>
+</div>

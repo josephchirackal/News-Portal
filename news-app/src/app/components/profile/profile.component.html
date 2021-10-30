@@ -1,1 +1,48 @@
-<p>profile works!</p>
+<div class="pageContainer row">
+    <div class="col-md-4 offset-md-4 col-sm-6 offset-sm-3 mt-60">
+        <div class="succBanner" *ngIf="saveSuccess"> Profile Details got updated successfully !!</div>
+        <form [formGroup]="profileForm" (submit)="onSave()">
+            <div class="form-group">
+                <label for="name">Display Name : </label>
+                <input type="name" name="name" class="form-control" placeholder="name" formControlName="displayName">
+            </div>
+            <div class="form-group">
+                <label for="email">Email : </label>
+                <input type="text" name="email" class="form-control" placeholder="Email" formControlName="email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password : </label>
+                <input type="password" name="password" class="form-control" placeholder="password" formControlName="password">
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" [disabled]="profileForm.invalid || !profileForm.dirty">Save changes</button>
+            </div>
+
+        </form>
+
+        
+
+      
+    </div>
+</div>
+
+<div class="delBtn">
+    <button type="button" class="btn btn-danger" (click)="open(content)">Delete Profile</button>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Delete Confirmation</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        Are you sure you want to delete the profile ?
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="modal.dismiss('')">No</button>
+        <button type="button" class="btn btn-primary" (click)="modal.close('')">Yes</button>
+
+    </div>
+  </ng-template>

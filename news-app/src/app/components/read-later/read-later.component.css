@@ -1,0 +1,24 @@
+.card{
+    border-radius: 10px;
+    border:1px solid #ccc;
+    margin:10px;
+    position: relative;
+    padding-bottom: 35px;
+    overflow:hidden;
+}
+
+.img-responsive {
+    max-width: 100%;
+    width: 100%;
+}
+
+.remove{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    background: #ff000073;
+    color: #fff;
+    cursor: pointer;
+}
